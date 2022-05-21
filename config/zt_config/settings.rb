@@ -5,6 +5,7 @@
 #
 #   11.10.2016  ZT  Inherited from BKC 95km
 #   09.11.2016  MULTILINGUAL added
+#   21.05.2022  Dotcoms
 ################################################################################
 
 ##### Debugging   #####
@@ -23,6 +24,9 @@ end
 
 ##### Mail  #####
 MAIL_BCC = ZT_CONFIG['mail']['bcc']
+
+##### Dotcoms List #####
+DOTCOMS = ZT_CONFIG['dotcoms']
 
 ##### Multilingual Mode #####
 MULTILINGUAL = ZT_CONFIG['multilingual']['status']

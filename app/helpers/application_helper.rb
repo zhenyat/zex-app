@@ -63,6 +63,13 @@ module ApplicationHelper
   end
 
   ##############################################################################
+  #   Hides secret values
+  ##############################################################################
+  def key_tail value
+    "#{'*'*50} #{value.last(4)}"
+  end
+
+  ##############################################################################
   # HTML element to switch language among available ones
   #
   # Source:  http://dhampik.ru/blog/rails-routes-tricks-with-s

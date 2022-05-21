@@ -4,7 +4,7 @@
       <h1 class="text-danger">Pages#demo</h1>
     </div>
     <p class="text-success">
-      <%= 'Find me in app/views/pages/demo.html.haml' %>
+      <%= 'Demo: bootstrap & locale' %>
     </p>
   </div>
   <hr/>
@@ -39,4 +39,21 @@
     </a>
     <%= language_switch_bootstrap('admin') %>
   </div>
+  <hr/>
+  <h4>Dotcoms</h4>
+  <% @dotcoms_attributes.each do |dotcom_attributes| %>
+    <table class='table table-hover'>
+      <% dotcom_attributes.each do |key, value| %>
+        <tr>
+          <td><%= key %></td>
+          <% if key.to_s.include?('secret') or key.to_s.include?('key') %>
+            <td><%= key_tail(value) %></td>
+          <% else %>
+            <td><%= value %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+    <hr/>
+  <% end %>
 </div>
