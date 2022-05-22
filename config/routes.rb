@@ -9,7 +9,6 @@
 #   16.03.2022  Rails 7
 ################################################################################
 Rails.application.routes.draw do
-
   app_scope = MULTILINGUAL ? "/:locale" : "/"
   scope app_scope, locale: /#{I18n.available_locales.join("|")}/ do
 
@@ -27,8 +26,8 @@ Rails.application.routes.draw do
     end
 
     root      'pages#home'                               # root_path
-    get :demo, to: 'pages#demo', path: 'demo'
-    resources  :samples
+    get       :demo, to: 'demo#index', path: 'demo'
+    resources :samples
   end
 
   if MULTILINGUAL

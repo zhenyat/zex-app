@@ -15,5 +15,6 @@ debug:
   status:  true
 
 dotcoms: binance cexio coinex
+
 #multilingual:
 #  status:  false
