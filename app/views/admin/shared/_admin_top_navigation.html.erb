@@ -43,17 +43,17 @@
           </a>
           <div aria-labelledby="navbarDropdown" class="dropdown-menu">
             <div class="dropdown-item" >
-              <%#= link_to t(Company.model_name.human(count: 2)),  admin_items_path %>
+              <%= link_to t(Coin.model_name.human(count: 2)),  admin_coins_path, class: "text-decoration-none"  %>
             </div>
             <div class="dropdown-item" >
-              <%#= link_to t(Category.model_name.human(count: 2)),  admin_categories_path %>
+              <%= link_to t(CoinNickname.model_name.human(count: 2)),  admin_coin_nicknames_path, class: "text-decoration-none" %>
             </div>
             <div class="dropdown-item">
-              <%#= link_to t(Partner.model_name.human(count: 2)), admin_partners_path %>
+              <%#= link_to t(Partner.model_name.human(count: 2)), admin_partners_path, class: "text-decoration-none"  %>
             </div>
             <div class="dropdown-divider"></div>
             <div class="dropdown-item">
-              <%= link_to t(Sample.model_name.human(count: 2)), admin_samples_path %>
+              <%= link_to t(Sample.model_name.human(count: 2)), admin_samples_path, class: "text-decoration-none"  %>
             </div>
             <div class="dropdown-item">
               <%#= link_to t(:dummy), '#' %>

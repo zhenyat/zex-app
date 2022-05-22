@@ -10,6 +10,21 @@ en:
       bank:
         one:                    Bank
         other:                  Banks
+      coin:
+        one:                    Coin
+        other:                  Coins
+      coin_nickname:
+        one:                    Coin Nickname
+        other:                  Coin Nicknames
+      pair:
+        one:                    Currency Pair
+        other:                  Currency Pairs
+      pair_nickname:
+        one:                    Currency Pair Nickname
+        other:                  Currency Pairs Nicknames
+      trade:
+        one:                    Trade
+        other:                  Trades
       category:
         one:                    Category
         other:                  Categories

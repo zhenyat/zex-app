@@ -1,12 +1,12 @@
 ################################################################################
 # Model:  User
 #
-# Purpose:
+# Purpose:  Admin user (aka M.Hurtle)
 #
 # User attributes:
 #   role              - role:           enum
 #   last_name         - string:
-#   first_name        - string:
+#   first_name         - string:
 #   email             - email:          string,  not NULL, unique
 #   password_digest   - password:       string, not NULL
 #   remember_token    - remember token: string
@@ -19,7 +19,7 @@
 class User < ApplicationRecord
   include Emailable
 
-  enum role:   %w(seller admin superadmin)
+  enum role:   %w(trader admin superadmin)
   enum status: %w(active archived)
 
   validates :last_name,  presence: true

@@ -1,14 +1,13 @@
-class PanelPolicy < ApplicationPolicy
+class CoinNicknamePolicy < ApplicationPolicy
 
   # For index
   class Scope < Scope
     def resolve
-      scope.all
-#      if (user.superadmin? || user.admin? || user.trader?)
-#        scope.all
-#      else
-#        nil
-#      end
+      if (user.superadmin? || user.admin? || user.trader?)
+        scope.all
+      else
+        nil
+      end
     end
   end
 
@@ -25,11 +24,11 @@ class PanelPolicy < ApplicationPolicy
   end
 
   def edit?
-    user.superadmin? || user.admin? || user.trader?
+    user.superadmin? || user.admin?
   end
 
   def update?
-    user.superadmin? || user.admin? || user.trader?
+    user.superadmin? || user.admin?
   end
 
   def destroy?

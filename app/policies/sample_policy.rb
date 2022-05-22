@@ -3,7 +3,7 @@ class SamplePolicy < ApplicationPolicy
   # For index
   class Scope < Scope
     def resolve
-      if (user.superadmin? || user.admin? || user.seller?)
+      if (user.superadmin? || user.admin? || user.trader?)
         scope.all
       else
         nil
@@ -12,7 +12,7 @@ class SamplePolicy < ApplicationPolicy
   end
 
   def show?
-    user.superadmin? || user.admin? || user.seller?
+    user.superadmin? || user.admin? || user.trader?
   end
 
   def create?

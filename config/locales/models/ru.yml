@@ -7,12 +7,21 @@ ru:
       account:
         one:                    Учетная запись
         other:                  Учетные записи
-      category:
-        one:                    Категория
-        other:                  Категории
-      product:
-        one:                    Товар
-        other:                  Товары
+      coin:
+        one:                    Монета
+        other:                  Монеты
+      coin_nickname:
+        one:                    Ник монеты
+        other:                  Ники монет
+      pair:
+        one:                    Валютная пара
+        other:                  Валютные пары
+      pair_nickname:
+        one:                    Ник валютной пары
+        other:                  Ники валютных пар
+      trade:
+        one:                    Сделка
+        other:                  Сделки
       sample:
         one:                    Образец
         other:                  Образцы
