@@ -119,7 +119,7 @@ module ApplicationHelper
           locale_param = request.path == root_path ? root_path(locale: loc) : params.merge(locale: loc).permit!
         end
         concat(content_tag(:div, class: "dropdown-item") do
-          concat content_tag(:div, (link_to I18n.t(:language, locale: loc), locale_param), class: (I18n. == loc ? "active" : ""))
+          concat content_tag(:div, (link_to I18n.t(:language, locale: loc), locale_param, class: "text-decoration-none"), class: (I18n. == loc ? "active" : ""))
         end)
       end
     end
