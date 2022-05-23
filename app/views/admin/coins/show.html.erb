@@ -1,6 +1,8 @@
 <div class='container'>
   <p style='color: green'><%= notice %></p>
-  <h1><%= "Coin" %> <%= image_tag @coin.avatar.variant(resize_to_limit: [50, 50]) if @coin.avatar.present? %></h1>
+  <h1><%= t Coin.model_name.human %> 
+    <%= image_tag @coin.avatar.variant(resize_to_limit: [50, 50]) if @coin.avatar.present? %>
+  </h1>
   <%= render @coin %>
   <%= render 'admin/shared/show_actions', object: @coin %>
 </div>

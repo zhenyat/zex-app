@@ -8,18 +8,20 @@
 #   unicode   - string
 #   status    - enum { active (0) | archived (1) }
 #
-#  22.05.2022 ZT
+#   Coin can have an avatar
+#
+#   22.05.2022 ZT
 ################################################################################
 class Coin < ApplicationRecord
   include Avatarable
   
-  has_many :coin_nicknames, dependent: :delete_all
-  # has_many :based_pairs,  class_name: 'Pair', foreign_key: 'base_id',  dependent: :delete_all
-  # has_many :quoted_pairs, class_name: 'Pair', foreign_key: 'quote_id', dependent: :delete_all
+  has_many :coin_nicknames, dependent: :destroy
+  has_many :based_pairs,  class_name: 'Pair', foreign_key: 'base_id',  dependent: :destroy
+  has_many :quoted_pairs, class_name: 'Pair', foreign_key: 'quote_id', dependent: :destroy
   
   enum kind:   %w(crypto fiat)
   enum status: %w(active archived)
   
-  validates :name,  presence: true, uniqueness: true
-  validates :code,  presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
+  validates :code, presence: true, uniqueness: true
 end

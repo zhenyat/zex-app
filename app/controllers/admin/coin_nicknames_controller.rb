@@ -2,7 +2,7 @@ class Admin::CoinNicknamesController < Admin::BaseController
   before_action :set_coin_nickname, only: [:show, :edit, :update,:destroy]
 
   def index
-    @coin_nicknames = policy_scope(CoinNickname)
+    @coin_nicknames = policy_scope(CoinNickname).order(:name)
   end
 
   def show
