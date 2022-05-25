@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>API Demo</h1>
+  <h4>Dotcom: <%= @dotcom_name %></h4>
+  <table class='table table-striped'>
+    <tr>
+      <td>Server Time</td>
+      <td><%= @time %></td>
+    </tr>
+  </table>
+  <hr/>
+  <%= table_body @response %>
+</div>

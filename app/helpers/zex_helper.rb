@@ -7,6 +7,33 @@ module ZexHelper
   end
 
   ##############################################################################
+  #   Generate a table body with hash data
+  ##############################################################################
+  def table_body collection = {}
+    tbody = content_tag :tbody do
+      collection.collect { |key, value|
+       content_tag :tr do
+          concat content_tag(:td, key)
+          concat content_tag(:td, value)
+        end
+      }.join().html_safe
+    end 
+    content_tag :table, tbody, class: ["table", "table-striped"]
+  end
+
+  # Probe
+  def mytable
+    tag.table(class: ['table', 'table-striped']) do
+      concat(tag.tr)
+        concat(tag.td 'key1')
+        concat(tag.td 'value1')
+        concat(tag.tr)
+        concat(tag.td 'key2')
+        concat(tag.td 'value2')
+    end
+  end
+
+  ##############################################################################
   #   Merges images
   ##############################################################################
   def images_tag(array_of_images, options={})

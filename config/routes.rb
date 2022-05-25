@@ -29,8 +29,10 @@ Rails.application.routes.draw do
       # Add new admin resources before this line
     end
 
-    root      'pages#home'                               # root_path
-    get       :demo, to: 'demo#index', path: 'demo'
+    root 'pages#home'
+    get  :demo,         to: 'demo#index',        path: 'demo'
+    get  :public_api,   to: 'demo#public_api',   path: 'public_api'
+    get  :candlesticks, to: 'demo#candlesticks', path: 'candlesticks'
     resources :samples
   end
 

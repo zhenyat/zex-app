@@ -10,7 +10,7 @@ GIT
 PATH
   remote: ../../../Ruby/Gems/zex
   specs:
-    zex (0.3.0)
+    zex (0.4.0)
 
 GEM
   remote: https://rubygems.org/
