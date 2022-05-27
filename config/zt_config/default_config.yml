@@ -28,6 +28,7 @@ defaults: &defaults
     status:         true
 
   dotcoms:          binance cexio coinex
+
 development:
   <<: *defaults
 
