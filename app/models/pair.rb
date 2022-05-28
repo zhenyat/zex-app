@@ -13,13 +13,10 @@
 #   hidden          - boolean, default: false
 #   fee             - decimal
 #   status          - enum { active (0) | archived (1) }
-#   avatar          - ActiveStorage image
 #
 #  23.05.2022 ZT
 ################################################################################
-class Pair < ApplicationRecord
-  include Avatarable
-  
+class Pair < ApplicationRecord  
   belongs_to :base,  class_name: 'Coin'
   belongs_to :quote, class_name: 'Coin'
 
