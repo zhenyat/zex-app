@@ -1,12 +1,13 @@
 class DemoController < ApplicationController
   include Parsing
+  before_action :set_api, only: :dddl
 
   def index
-    dotcoms_names = DOTCOMS.split
-    @dotcoms_attributes = []
-    dotcoms_names.each do |name|
+    dotcom_names = DOTCOMS.split
+    @dotcom_attributes = []
+    dotcom_names.each do |name|
       dotcom = Zex::Dotcom.new(name: name, api_mode: 'public')
-      @dotcoms_attributes << attributes_values(dotcom)
+      @dotcom_attributes << attributes_values(dotcom)
     end
   end
 
@@ -43,4 +44,31 @@ class DemoController < ApplicationController
       @candles << s.split(',')
     end
   end
+
+  def dddl
+    @dotcom_names = DOTCOMS.split
+    # @dotcom_name  = params[:dotcom_name] if @dotcom_name.nil?
+    @api_modes = ['public', 'private']
+    @api_mode = params[:api_mode] if @api_mode.nil?
+    # @api_method = params[:api_method] if @api_method.nil?
+
+    if @dotcom_name.present? and @api_mode.present? and not @api_method.present?
+      @api_methods = ZEX_CONFIG[@dotcom_name][@api_mode]['methods'].split
+    else
+      @api_methods = []
+    end
+    
+    if @dotcom_name.present? and @dotcom_name.present? and @api_method.present?
+      dotcom = Zex::Dotcom.new(name: @dotcom_name, api_mode: @api_mode)
+      api = Zex::PublicApiGet.new(dotcom: dotcom, method: 'time')
+      @time = Time.at(api.request['serverTime']/1000)
+    end
+  end
+
+  private
+    def set_api
+      @dotcom_name  = params[:dotcom_name] if @dotcom_name.nil?
+      @api_mode = params[:api_mode] if @api_mode.nil?
+      @api_method = params[:api_method] if @api_method.nil?
+    end
 end

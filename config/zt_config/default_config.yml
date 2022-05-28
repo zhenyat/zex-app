@@ -27,8 +27,6 @@ defaults: &defaults
   multilingual:
     status:         true
 
-  dotcoms:          binance cexio coinex
-
 development:
   <<: *defaults
 
