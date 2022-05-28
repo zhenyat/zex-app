@@ -47,10 +47,7 @@ class DemoController < ApplicationController
 
   def dddl
     @dotcom_names = DOTCOMS.split
-    # @dotcom_name  = params[:dotcom_name] if @dotcom_name.nil?
     @api_modes = ['public', 'private']
-    @api_mode = params[:api_mode] if @api_mode.nil?
-    # @api_method = params[:api_method] if @api_method.nil?
 
     if @dotcom_name.present? and @api_mode.present? and not @api_method.present?
       @api_methods = ZEX_CONFIG[@dotcom_name][@api_mode]['methods'].split
@@ -58,7 +55,7 @@ class DemoController < ApplicationController
       @api_methods = []
     end
     
-    if @dotcom_name.present? and @dotcom_name.present? and @api_method.present?
+    if @dotcom_name == 'binance' and @api_mode == 'public' and @api_method == 'time'
       dotcom = Zex::Dotcom.new(name: @dotcom_name, api_mode: @api_mode)
       api = Zex::PublicApiGet.new(dotcom: dotcom, method: 'time')
       @time = Time.at(api.request['serverTime']/1000)

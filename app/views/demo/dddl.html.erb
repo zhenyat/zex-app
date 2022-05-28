@@ -12,8 +12,9 @@
     <% if @api_method.nil? %>
       <%= select_tag "api_method", options_for_select(@api_methods), prompt: "Select API method", onchange: "this.form.submit()" %>
     <% else %>
-      <%= select_tag "api_method", options_for_select(@api_methods, @api_method), onchange: "this.form.submit()" %>
+      <%= select_tag "api_method", options_for_select(@api_methods, @api_method) %><!--, onchange: "this.form.submit()" %-->
     <% end %>
+    <%= submit_tag "Update" %>
   <% end %>
   <hr/>
   <% if @dotcom_name.present? and @dotcom_name.present? and @api_method.present?%>
