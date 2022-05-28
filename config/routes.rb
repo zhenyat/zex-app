@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     get  :demo,         to: 'demo#index',        path: 'demo'
     get  :public_api,   to: 'demo#public_api',   path: 'public_api'
     get  :candlesticks, to: 'demo#candlesticks', path: 'candlesticks'
+    get  :dddl,         to: 'demo#dddl',         path: 'dddl'
     resources :samples
   end
 

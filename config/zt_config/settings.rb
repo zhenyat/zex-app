@@ -25,9 +25,6 @@ end
 ##### Mail  #####
 MAIL_BCC = ZT_CONFIG['mail']['bcc']
 
-##### Dotcoms List #####
-DOTCOMS = ZT_CONFIG['dotcoms']
-
 ##### Multilingual Mode #####
 MULTILINGUAL = ZT_CONFIG['multilingual']['status']
 

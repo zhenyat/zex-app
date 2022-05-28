@@ -7,8 +7,7 @@
 #   kind      - enum { crypto (0) | fiat (1) }
 #   unicode   - string
 #   status    - enum { active (0) | archived (1) }
-#
-#   Coin can have an avatar
+#   avatar    - ActiveStorage image
 #
 #   22.05.2022 ZT
 ################################################################################

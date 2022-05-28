@@ -1,8 +1,6 @@
 ################################################################################
 # Model:  Pair
 #
-# Purpose:
-#
 # Pair attributes:
 #   base_id         - FK
 #   quote_id        - FK
@@ -15,6 +13,7 @@
 #   hidden          - boolean, default: false
 #   fee             - decimal
 #   status          - enum { active (0) | archived (1) }
+#   avatar          - ActiveStorage image
 #
 #  23.05.2022 ZT
 ################################################################################
@@ -32,7 +31,7 @@ class Pair < ApplicationRecord
   enum status: %w(active archived)
 
   validates :base,  presence: true
-  validates :quote, presence: true, comparison: {other_than: :base, message: "can't equal the Base"} 
+  validates :quote, presence: true, comparison: {other_than: :base, message: "must differ from the Base"} 
   validates :code,  presence: true, uniqueness: true
 
   def name

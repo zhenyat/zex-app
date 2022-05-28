@@ -1,0 +1,29 @@
+<h1>Demo: DDDL</h1>
+
+<div class="block">
+  <%= form_tag dddl_path, method: :get do %>
+    <% if @dotcom_name.nil? and @api_mode.nil?%>
+      <%= select_tag "dotcom_name", options_for_select(@dotcom_names), prompt: "Select Dotcom" %>
+      <%= select_tag "api_mode", options_for_select(@api_modes), prompt: "Select API mode", onchange: "this.form.submit()" %>
+    <% else %>
+      <%= select_tag "dotcom_name", options_for_select(@dotcom_names, @dotcom_name) %>
+      <%= select_tag "api_mode", options_for_select(@api_modes, @api_mode) %>
+    <% end %>
+    <% if @api_method.nil? %>
+      <%= select_tag "api_method", options_for_select(@api_methods), prompt: "Select API method", onchange: "this.form.submit()" %>
+    <% else %>
+      <%= select_tag "api_method", options_for_select(@api_methods, @api_method), onchange: "this.form.submit()" %>
+    <% end %>
+  <% end %>
+  <hr/>
+  <% if @dotcom_name.present? and @dotcom_name.present? and @api_method.present?%>
+    <h5>Selected API:</h5>
+    <ul>
+      <li>Dotcom: <strong><%= "#{@dotcom_name}" %></strong></li>
+      <li>API Mode: <strong><%= "#{@api_mode}" %></strong></li>
+      <li>API Method: <strong><%= "#{@api_method}" %></strong></li>
+    </ul>
+    <hr/>
+    <%= @time.presence %> 
+  <% end %>
+</div>
