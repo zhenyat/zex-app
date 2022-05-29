@@ -13,6 +13,8 @@
 ################################################################################
 class Dotcom < ApplicationRecord
   include Avatarable
+  has_many :apis, dependent: :destroy
+
   has_rich_text :content
   enum status: %w(active archived)
 

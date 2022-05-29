@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :pairs
       resources :pair_nicknames
       resources :dotcoms
+      resources :apis
       # Add new admin resources before this line
     end
 
