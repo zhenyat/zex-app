@@ -56,6 +56,10 @@
             </div>
             <div class="dropdown-divider"></div>
             <div class="dropdown-item">
+              <%= link_to t(Dotcom.model_name.human(count: 2)), admin_dotcoms_path, class: "text-decoration-none"  %>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
               <%= link_to t(Sample.model_name.human(count: 2)), admin_samples_path, class: "text-decoration-none"  %>
             </div>
             <div class="dropdown-item">

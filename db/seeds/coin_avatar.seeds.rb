@@ -4,9 +4,9 @@ begin
     relative_filename = "#{coin.code.downcase}.png"
     # Get sources from iCloud
     if coin.crypto?
-      source_dir = "/Users/zhenya/Library/Mobile Documents/com~apple~CloudDocs/Development/Projects/Tra/Coins/Crypto"
+      source_dir = "/Users/zhenya/Library/Mobile Documents/com~apple~CloudDocs/Development/Projects/Tra/Logos/Coins/Crypto"
     else
-      source_dir = "/Users/zhenya/Library/Mobile Documents/com~apple~CloudDocs/Development/Projects/Tra/Coins/Fiat"
+      source_dir = "/Users/zhenya/Library/Mobile Documents/com~apple~CloudDocs/Development/Projects/Tra/Logos/Coins/Fiat"
     end
     source_file = "#{source_dir}/#{relative_filename}"
 
@@ -15,7 +15,7 @@ begin
       avatars += 1
     end
   end
-  puts "===== #{avatars} Coin Cover Images uploaded"
+  puts "===== #{avatars} Coin avatars uploaded"
 rescue
   puts "----- Achtung! Something went wrong..."
 end

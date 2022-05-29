@@ -17,11 +17,11 @@
         <td><%= coin.code %></td>
         <td><%= coin.kind %></td>
         <td><%= coin.unicode %></td>
-          <% if coin.avatar.attached? %>
-            <td ><%= image_tag coin.avatar.variant(resize_to_limit: [30, 30]) %></td>
-          <% else %>
-            <td></td>
-          <% end %>
+        <% if coin.avatar.attached? %>
+          <td ><%= image_tag coin.avatar.variant(resize_to_limit: [30, 30]) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
         <td><%= status_mark coin.status %></td>
         <td><%= render 'admin/shared/index_buttons', resource: coin %></td>
       </tr>
