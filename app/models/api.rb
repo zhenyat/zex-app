@@ -18,19 +18,17 @@
 ################################################################################
 class Api < ApplicationRecord
   belongs_to :dotcom, required: true
+  has_many   :api_methods
 
   enum mode: %w(public_api private_api)
   enum status: %w(active archived)
 
+  def show_secret
+    get_secret
+  end
+
   private
     def get_secret
-      self.secret = Rails.application.credentials.config[self.dotcom.name.to_sym][self.mode.to_sym][:key]
+      Rails.application.credentials.config[self.dotcom.name.to_sym][self.mode.to_sym][:secret]
     end
 end
-
-# def initialize
-#   super
-#   write_attribute(name, "John Doe")
-#   write_attribute(email,  f(email))
-#   write_attribute(admin, false)
-# end

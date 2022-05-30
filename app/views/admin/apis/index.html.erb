@@ -6,6 +6,7 @@
       <th><%= Api.human_attribute_name(:base_url) %></th>
       <th><%= Api.human_attribute_name(:path) %></th>
       <th><%= Api.human_attribute_name(:key) %></th>
+      <th><%= Api.human_attribute_name(:secret) %></th>
       <th><%= Api.human_attribute_name(:user) %></th>
       <th><%= t 'status.status' %></th>
       <th><%= t 'actions.actions' %><th>
@@ -19,6 +20,7 @@
         <td><%= api.base_url %></td>
         <td><%= api.path %></td>
         <td><%= key_tail(api.key) if not api.key.blank? %></td>
+        <td><%= key_tail(api.show_secret) if not api.show_secret.blank?%></td>
         <td><%= api.user %></td>
         <td><%= status_mark api.status %></td>
         <td><%= render 'admin/shared/index_buttons', resource: api %></td>

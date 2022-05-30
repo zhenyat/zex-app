@@ -1,8 +1,8 @@
 begin
   if (Api.present? and not Api.exists?)
     Dotcom.active.each do |dotcom|
-      ['public_api', 'private_api'].each do |mode|
-        Api.create(dotcom: dotcom, mode: mode,
+      dotcom.apis.each do |api|
+        ApiMethod.create(api: api, name: ,
           user:     Rails.application.credentials.config[dotcom.name.to_sym][mode.to_sym][:user],
           base_url: Rails.application.credentials.config[dotcom.name.to_sym][mode.to_sym][:base_url],
           path:     Rails.application.credentials.config[dotcom.name.to_sym][mode.to_sym][:path],

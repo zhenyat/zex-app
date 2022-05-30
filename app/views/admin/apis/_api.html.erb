@@ -7,6 +7,9 @@
             <% if key == 'status' %>
               <td><%= t 'status.status' %></td>
               <td><%= status_mark @api.status %></td>
+            <% elsif key == 'secret' %> 
+              <td><%= t "activerecord.attributes.api.#{key}" %></td>
+              <td><%=  key_tail(@api.show_secret) if not @api.show_secret.nil? %></td>
             <% else %>
               <td><%= t "activerecord.attributes.api.#{key}" %></td>
               <td><%= value %></td>

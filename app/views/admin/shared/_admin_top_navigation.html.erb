@@ -61,6 +61,9 @@
             <div class="dropdown-item">
               <%= link_to t(Api.model_name.human(count: 2)), admin_apis_path, class: "text-decoration-none"  %>
             </div>
+            <div class="dropdown-item">
+              <%= link_to t(ApiMethod.model_name.human(count: 2)), admin_api_methods_path, class: "text-decoration-none"  %>
+            </div>
             <div class="dropdown-divider"></div>
             <div class="dropdown-item">
               <%= link_to t(Sample.model_name.human(count: 2)), admin_samples_path, class: "text-decoration-none"  %>
