@@ -16,6 +16,7 @@ begin
     end
   end
   puts "===== #{avatars} Coin avatars uploaded"
-rescue
+rescue StandardError, AnotherError => e
   puts "----- Achtung! Something went wrong..."
+  puts "#{e.inspect}"
 end

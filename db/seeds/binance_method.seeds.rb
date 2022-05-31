@@ -18,8 +18,8 @@ begin
           link: 'https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#check-server-time'
         )
         am.content.body = "Test connectivity to the Rest API and get the current server time.<br>
-                           <strong>GET /api/v3/time</strong><br>
-                           Response: {\"serverTime\": 1499827319559}"
+                            <strong>GET /api/v3/time</strong><br>
+                            Response: {\"serverTime\": 1499827319559}"
         am.save
 
         am = ApiMethod.create(
@@ -27,13 +27,13 @@ begin
           link: 'https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#exchange-information'
         )
         am.content.body = "Current exchange trading rules and symbol information<br>
-                           <strong>GET /api/v3/exchangeInfo</strong><hr/>
-                           <h5>Examples</h5>
-                           No params: curl -X GET \"https://api.binance.com/api/v3/exchangeInfo\"<br>
-                           Symbol: curl -X GET \"https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC\"<br>
-                           Symbols: curl -X GET \"https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D\"<br>
-                           or
-                           curl -g GET 'https://api.binance.com/api/v3/exchangeInfo?symbols=[\"BTCUSDT\",\"BNBBTC\"]'
+                            <strong>GET /api/v3/exchangeInfo</strong><hr/>
+                            <h5>Examples</h5>
+                            No params: curl -X GET \"https://api.binance.com/api/v3/exchangeInfo\"<br>
+                            Symbol: curl -X GET \"https://api.binance.com/api/v3/exchangeInfo?symbol=BNBBTC\"<br>
+                            Symbols: curl -X GET \"https://api.binance.com/api/v3/exchangeInfo?symbols=%5B%22BNBBTC%22,%22BTCUSDT%22%5D\"<br>
+                            or
+                            curl -g GET 'https://api.binance.com/api/v3/exchangeInfo?symbols=[\"BTCUSDT\",\"BNBBTC\"]'
                           "
         am.save
 
@@ -42,22 +42,22 @@ begin
           link: 'https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#order-book'
         )
         am.content.body = "<strong>GET \"https://api.binance.com/api/v3/depth?symbol=BTCUSDT\"</strong><br>
-                           Response:
-                           {<br>
-                             \"lastUpdateId\": 1027024,<br>
-                             \"bids\": [<br>
-                               [ <br>
-                                 \"4.00000000\",     // PRICE<br>
-                                 \"431.00000000\"    // QTY<br>
-                               ]<br>
+                            Response:
+                            {<br>
+                              \"lastUpdateId\": 1027024,<br>
+                              \"bids\": [<br>
+                                [ <br>
+                                  \"4.00000000\",     // PRICE<br>
+                                  \"431.00000000\"    // QTY<br>
+                                ]<br>
                               ],<br>
                               \"asks\": [<br>
-                               [<br>
-                                 \"4.00000200\",<br>
-                                 \"12.00000000\"<br>
-                               ]<br>
-                             ]<br>
-                           }
+                                [<br>
+                                  \"4.00000200\",<br>
+                                  \"12.00000000\"<br>
+                                ]<br>
+                              ]<br>
+                            }
                           "
         am.save
 
@@ -112,8 +112,8 @@ begin
           <strong>GET \"api/v3/ticker/bookTicker\"</strong><br>
         "
         am.save
-
-      else        ### Private APIs
+  
+      elsif api.mode == 'private_api'
         am = ApiMethod.create(
           api: api, name: 'order', title: 'Account endpoints: Orders',
           link: 'https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#new-order--trade'
@@ -222,12 +222,16 @@ begin
         # )
         # am.content.body = ""
         # am.save
+
+      else          # Demo mode: public_api metrhods to be used
+        # do nothing
       end
     end
     puts "===== 'Binance ApiMethod' #{ApiMethod.count} record(s) created"
   else
     puts "===== 'Binance ApiMethod' seeding skipped"
   end
-rescue
+rescue StandardError, AnotherError => e
   puts "----- Achtung! Something went wrong..."
+  puts "#{e.inspect}"
 end

@@ -23,6 +23,7 @@ begin
   else
     puts "===== 'Coin' seeding skipped"
   end
-rescue
-puts "----- Achtung! Something went wrong..."
+rescue StandardError, AnotherError => e
+  puts "----- Achtung! Something went wrong..."
+  puts "#{e.inspect}"
 end

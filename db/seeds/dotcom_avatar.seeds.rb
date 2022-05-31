@@ -12,6 +12,7 @@ begin
     end
   end
   puts "===== #{avatars} Dotcom avatars uploaded"
-rescue
+rescue StandardError, AnotherError => e
   puts "----- Achtung! Something went wrong..."
+  puts "#{e.inspect}"
 end

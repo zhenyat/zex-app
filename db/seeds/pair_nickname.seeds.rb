@@ -30,6 +30,7 @@ begin
   else
     puts "===== 'PairNickname' seeding skipped"
   end
-rescue
-puts "----- Achtung! Something went wrong..."
+rescue StandardError, AnotherError => e
+  puts "----- Achtung! Something went wrong..."
+  puts "#{e.inspect}"
 end

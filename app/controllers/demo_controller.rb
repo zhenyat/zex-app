@@ -1,3 +1,6 @@
+##############################################################
+#   Working via Zex::Dotcom
+##############################################################
 class DemoController < ApplicationController
   include Parsing
   before_action :set_api, only: :dddl

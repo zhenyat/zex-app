@@ -1,4 +1,5 @@
 begin
+  existing_methdos = ApiMethod.count
   dotcom = Dotcom.find_by name: 'cexio'
   apis = Api.where dotcom: dotcom
   apis.each do |api|
@@ -82,8 +83,8 @@ begin
       )
       am.content.body = "<strong>GET https://cex.io/api/trade_history/{symbol1}/{symbol2}/</strong>"
       am.save
-
-    else        ### Private APIs
+  
+    elsif api.mode == 'private_api'
       am = ApiMethod.create(
         api: api, name: 'balance', title: 'Account balance',
         link: 'https://cex.io/rest-api#account-balance'
@@ -184,9 +185,13 @@ begin
         <strong>POST https://cex.io/api/cancel_replace_order/{symbol1}/{symbol2}</strong>
       "
       am.save
+
+    else          # Demo mode: public_api metrhods to be used
+      # do nothing
     end
   end
-  puts "===== 'CEX.IO ApiMethod' #{ApiMethod.count} record(s) created"
-rescue
+  puts "===== 'CEX.IO ApiMethod' #{ApiMethod.count - existing_methdos} record(s) created"
+rescue StandardError, AnotherError => e
   puts "----- Achtung! Something went wrong..."
+  puts "#{e.inspect}"
 end

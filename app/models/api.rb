@@ -7,7 +7,7 @@
 #
 # Api attributes:
 #   dotcom_id   - FK
-#   mode        - API mode: enum { public_api (0) | private_api (1) }
+#   mode        - API mode: enum { demo_api (0) | public_api (1) | private_api (2) }
 #   path        - path added to endpoint
 #   key         - string
 #   secret      - string
@@ -18,9 +18,9 @@
 ################################################################################
 class Api < ApplicationRecord
   belongs_to :dotcom, required: true
-  has_many   :api_methods
+  has_many   :api_methods, dependent: :destroy
 
-  enum mode: %w(public_api private_api)
+  enum mode: %w(demo_api public_api private_api)
   enum status: %w(active archived)
 
   def show_secret
